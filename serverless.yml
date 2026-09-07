@@ -1,18 +1,19 @@
 service: backend-appsync
-frameworkVersion: '2'
+frameworkVersion: '3'
+
+plugins:
+  - serverless-appsync-plugin
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs20.x
 
 package:
-  exclude:
-    - node_modules/**
-    - .gitignore
-    - .git/**
-    - package-lock.json
-    - package.json
+  patterns:
+    - '!node_modules/**'
+    - '!.gitignore'
+    - '!.git/**'
+    - '!package-lock.json'
+    - '!package.json'
 
-custom:
-  appSync:
-    - ${file(serverless-appsync-api.yml)}
+appSync: ${file(serverless.appsync-api.yml)}

@@ -1,2 +1,4 @@
 name: appsync-api
 schema: schema.api.graphql
+authentication:
+  type: API_KEY
